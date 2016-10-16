@@ -1,0 +1,5 @@
+To make the networkLayer work with your Java program, you need to modify the python program a little bit.
+Please look for " b = b + "\n" " in the program, and uncomment this line to make it work.
+
+Thanks,
+Guobao
