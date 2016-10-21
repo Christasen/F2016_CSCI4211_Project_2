@@ -5,10 +5,10 @@ import select
 
 
 def TCP_server():
-
+    # TCP_server part
 
 def TCP_client():
-
+    # TCP_client part
 
 def main():
     # TCP_server()
