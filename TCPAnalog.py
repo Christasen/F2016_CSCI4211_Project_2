@@ -1,8 +1,32 @@
-import sys, os, random, threading
+import sys, os, random, threading, hashlib
+
 from socket import *
 from datetime import datetime
 from argparse import ArgumentParser
-import select
+from select import *
+
+BUFSIZE = 512
+
+def TCP_SWP_server(connectedSock, addr):
+    sSock = connectedSock
+    data = sSock.recv(BUFSIZE).decode()
+    checksum = data[:20]
+    pktnum = data[20]
+    pktsize = data[21:24]
+    lastsign = data[24]
+    pktdata = data[25:]
+    seqid = 0
+
+    ourkey = hashlib.sha1()
+    ourkey.update(data[20:].encode())
+    if ourkey.digest() == checksum:
+        # match
+    else:
+        # data lost, discard the packet
+
+    sSock.close()
+
+
 
 def TCP_server(hostname, portnum):
     print("Server starts to listen to {}:{}".format(hostname, portnum))
@@ -18,43 +42,39 @@ def TCP_server(hostname, portnum):
     monitor = threading.Thread(target = monitorQuit, args = [sSock])
     monitor.start()
 
-    print("Server is running...")
-
+    print("Server is listening...")
     while True:
-        1 + 1
+        connectedSock, addr = sSock.accept()
+        server = threading.Thread(target = TCP_SWP_server, args=[connectedSock, addr[0]])
+        server.start()
 
-def TCP_client(hostname, portnum):
-    print("Client starts to listen to {}:{}".format(hostname, portnum))
 
+def TCP_client(hostname, portnum, filename):
     try:
-        cSock = socket(AF_INET, SOCK_STREAM)
-        cSock.bind((hostname, portnum))
-        cSock.listen(20)
+        fd = open(filename, 'r')
     except error as msg:
         print(msg)
         return -1
-
-    monitor = threading.Thread(target = monitorQuit, args = [cSock])
-    monitor.start()
-    print("Client is running...")
-
+    print("Client starts to establish connection to {}:{}".format(hostname, portnum))
     while True:
-        1 + 1
+        try:
+            cSock = socket(AF_INET, SOCK_STREAM)
+            cSock.connect((hostnamem, portnum))
+        except error as msg:
+            print(msg)
+            return -1
+
 
 def main():
-    (host, port, role) = parse_args()
-    if role == "server":
+    (host, port, filename) = parse_args()
+    if filename == '':
         if port < 0:
             port = 5001
         return TCP_server(host, port)
-    elif role == "client":
+    else:
         if port < 0:
             port = 5002
-        return TCP_client(host, port)
-    else:
-        print("Errors in role name. The role name must be 'server' or 'client'")
-        print("Use '-h' for more details\n")
-        return 0
+        return TCP_client(host, port, filename)
 
 def parse_args():
     parser = ArgumentParser()
@@ -62,10 +82,10 @@ def parse_args():
                         help = "specify a host to send and listen (default: localhost)")
     parser.add_argument('-p', '--port', type = int, default = -1,
                         help = "specify a port to send and listen (default: 5001 for server, 5002 for client)")
-    parser.add_argument('-r', '--role', type = str, default = 'server',
-                        help = "specify a role for the program ('server' or 'client', default: 'server')")
+    parser.add_argument('-f', '--file', type = str, default = '',
+                        help = "specify a file which will be transferred to the server. Leaving this arg empty means this program will be a server")
     args = parser.parse_args()
-    return (args.host, args.port, args.role)
+    return (args.host, args.port, args.file)
 
 def monitorQuit(genSock):
     while True:
