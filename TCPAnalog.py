@@ -7,19 +7,21 @@ from select import *
 
 BUFSIZE = 512
 
+def get_digest_in_char(hexkey):
+    charkey = str()
+
 def TCP_SWP_server(connectedSock, addr):
     sSock = connectedSock
-    data = sSock.recv(BUFSIZE).decode()
+    data = sSock.recv(BUFSIZE)
     checksum = data[:20]
     pktnum = data[20]
     pktsize = data[21:24]
     lastsign = data[24]
-    pktdata = data[25:]
+    pktdata = data[25:].decode().strip('\0')
     seqid = 0
 
-    ourkey = hashlib.sha1()
-    ourkey.update(data[20:].encode())
-    if ourkey.digest() == checksum:
+
+    if hashres == checksum:
         # match
     else:
         # data lost, discard the packet
