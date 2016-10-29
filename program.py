@@ -6,6 +6,7 @@ from argparse import ArgumentParser
 from select import *
 
 BUFSIZE = 512
+TIMEOUT = 10 # Wait for three seconds.
 SYN = "SYN"
 ACK = "ACK"
 SYNACK = "SYNACK"
@@ -31,11 +32,14 @@ def TCP_SWP_server(connectedSock, addr):
     SYNed = False
     ACKed = False
     while True:
-        # select([sSock], [], [])
-        data = sSock.recv(BUFSIZE).decode()
-        if (len(data) == 0):
+        ready = select.select([sSock], [], [], TIMEOUT)
+        if ready[0]:
+            data = sSock.recv(BUFSIZE).decode()
+            print(data)
+        else:
             # timeout, re-sent data
             if len(data_sending) != 0:
+			    print("Timeout! Retransmitting...")                
                 sSock.send(data_sending.encode())
             continue
         # validate packet
@@ -98,8 +102,6 @@ def TCP_server(hostname, portnum):
         sSock.bind((hostname, portnum))
         sSock.listen(20)
     except error as msg:
-        print(msg)
-        return -1
     # Monitor the exit commands
     monitor = threading.Thread(target = monitorQuit, args = [sSock])
     monitor.start()
@@ -136,12 +138,13 @@ def TCP_client(hostname, portnum, filename):
     data_sending = create_packet(seq_num, SYN, 0)
     cSock.send(data_sending.encode())
     while True:
-        # select([cSock], [], [])
-        data = cSock.recv(BUFSIZE).decode()
-        if (len(data) == 0):
-            # timeout, re-sent data
+		ready = select.select([cSock], [], [], TIMEOUT)
+		if ready[0]:
+			data = cSock.recv(BUFSIZE).decode()
+			print(data)
+		else:
+			print("Timeout! Retransmitting...")
             cSock.send(data_sending.encode())
-            continue
         # validate data received
         if not validate_packet(data):
             # invalid packet, discard the packet
