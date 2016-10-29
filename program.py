@@ -9,6 +9,7 @@ TIMEOUT = 10 # Wait for three seconds.
 SYN = "SYN"
 ACK = "ACK"
 SYNACK = "SYNACK"
+RST = "RST"
 # ORI_DATA = hashlib.sha1(('00030RST' + ('\0' * 464)).encode()).hexdigest() + '00030RST' + ('\0' * 464)
 
 def validate_packet(data):
@@ -34,15 +35,17 @@ def TCP_SWP_server(connectedSock, addr):
         ready = select.select([sSock], [], [], TIMEOUT)
         if ready[0]:
             data = sSock.recv(BUFSIZE).decode()
+            print("Packet received:")
             print(data)
         else:
             # timeout, re-sent data
             if len(data_sending) != 0:
                 print("Timeout! Retransmitting...")
+                print("Packet sent:")
+                print(data_sending)
                 sSock.send(data_sending.encode())
             continue
         # validate packet
-        data = sSock.recv(BUFSIZE).decode()
         if not validate_packet(data):
             # invalid packet, discard the packet
             continue
@@ -61,11 +64,17 @@ def TCP_SWP_server(connectedSock, addr):
                 # SYN successfully, send SYNACK
                 SYNed = True
                 data_sending = create_packet(seq_num, SYNACK, 0)
+                print("Packet sent:")
+                print(data_sending)
                 sSock.send(data_sending.encode())
                 continue
             else:
-                # not a valid SYN message, discard the packet
-                continue
+                # not a valid SYN message, close the connection
+                data_sending = create_packet(0, RST, 1)
+                print("RST packet sent")
+                print(data_sending)
+                sSock.send(data_sending.encode())
+                break
         # check ACK
         if not ACKed:
             if content[:3] == ACK:
@@ -74,17 +83,24 @@ def TCP_SWP_server(connectedSock, addr):
                 recv_filename = content[3:pkt_size]
                 fd = open(recv_filename, "w")
                 data_sending = create_packet(seq_num, ACK, 0)
+                print("Packet sent:")
+                print(data_sending)
                 sSock.send(data_sending.encode())
                 continue
             else:
-                # not a valid ACK message, discard the packet
-                continue
+                # not a valid ACK message, close the connection
+                data_sending = create_packet(0, RST, 1)
+                print("RST packet sent")
+                print(data_sending)
+                sSock.send(data_sending.encode())
+                break
         # if SYNed and ACKed, store the content sent from the client
         # and send ACK to the client
-        if SYNed and ACKed:
-            fd.write(content[:pkt_size])
-            data_sending = create_packet(seq_num, ACK, 0)
-            sSock.send(data_sending.encode())
+        fd.write(content[:pkt_size])
+        data_sending = create_packet(seq_num, ACK, lastsign)
+        print("Packet sent:")
+        print(data_sending)
+        sSock.send(data_sending.encode())
         # close the connection if this is the last packet
         if lastsign == 1:
             fd.close()
@@ -135,16 +151,18 @@ def TCP_client(hostname, portnum, filename):
     # initialize all variables host
     SYNed = False
     seq_num = 0
-    end_signal = 0
     data_sending = create_packet(seq_num, SYN, 0)
     cSock.send(data_sending.encode())
     while True:
         ready = select.select([cSock], [], [], TIMEOUT)
         if ready[0]:
             data = cSock.recv(BUFSIZE).decode()
+            print('Packet received:')
             print(data)
         else:
             print("Timeout! Retransmitting...")
+            print("Packet sent:")
+            print(data_sending)
             cSock.send(data_sending.encode())
             continue
         # validate data received
@@ -156,6 +174,14 @@ def TCP_client(hostname, portnum, filename):
         pkt_size = int(data[41:44])
         lastsign = int(data[44])
         content = data[45:]
+        if lastsign == 1:
+            if content[:3] == ACK:
+                # last packet sent successfully, close the connection
+                print("Client: transferring completed")
+            elif content[:3] == RST:
+                # reset connection
+                print("Client: connection is reseted")
+            break
         # compare seq_num with the seq_num received
         if seq_num != rep_seq_num:
             # wrong sequence number, discard the packet
@@ -169,19 +195,14 @@ def TCP_client(hostname, portnum, filename):
                 SYNed = True
                 # send ACK and the name of file would be transferred
                 data_sending = create_packet(seq_num, ACK + filename, 0)
+                print("Packet sent:")
+                print(data_sending)
                 cSock.send(data_sending.encode())
                 continue
             else:
                 # invliad SYNACK message
                 continue
         # check whether connection should be closed:
-        if end_signal == 1:
-            if (content[:3] == ACK):
-                # last packet sent successfully, close the connection
-                print("Client: transferring completed")
-                break
-            else:
-                continue
         # check whether the last packet is ACKed
         if content[:3] == ACK:
             # send the content of the file
@@ -190,7 +211,11 @@ def TCP_client(hostname, portnum, filename):
             file_p = end_this_time
             if len(content_sending) == 0:
                 end_signal = 1
+            else:
+                end_signal = 0
             data_sending = create_packet(seq_num, content_sending, end_signal)
+            print("Packet sent:")
+            print(data_sending)
             cSock.send(data_sending.encode())
         else:
             # not ACKed
