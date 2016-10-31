@@ -1,0 +1,354 @@
+
+----Client starts to establish connection to localhost:5002----
+
+Time: 2016-10-31 13:45:21.553400
+Packet[#0] Sending: Sending a SYN packet to the server...
+
+Time: 2016-10-31 13:45:23.556483
+Packet Receiving: Received a packet from the server.
+len: 512
+ec105bd7c663e7df8bd66a726194ba2a9b2c310a
+ec105bd7c663e7df8bd66a726194ba2a9b2c310a
+seq: 0
+Packet Receiving: Received a valid SYNACK message from the server.
+Packet[#1] Sending: Sending a packet contained ACK and the name of file...
+
+Time: 2016-10-31 13:45:25.558723
+Packet Receiving: Received a packet from the server.
+len: 512
+6ba4d3d3f9be29140107f0726c055098e87a5dbc
+6ba4d3d3f9be29140107f0726c055098e87a5dbc
+seq: 1
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#2] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:45:27.560975
+Packet Receiving: Received a packet from the server.
+len: 512
+fe83619ee3f1e53ec708addb1073c441e8db31ae
+fe83619ee3f1e53ec708addb1073c441e8db31ae
+seq: 2
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#3] Sending: The packet will be sent is a FIN packet.
+Packet[#3] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:45:29.563216
+Packet Receiving: Received a packet from the server.
+len: 512
+19476a864ad8c2e702b1657b47fe9744ee5cc45b
+19476a864ad8c2e702b1657b47fe9744ee5cc45b
+seq: 3
+Packet Receiving: The packet is an ACKFIN packet.
+Packet[#4] Sending: Sending last packet to the server to close the connection...
+Connection closed.
+
+----Client starts to establish connection to localhost:5002----
+
+Time: 2016-10-31 13:45:48.635052
+Packet[#0] Sending: Sending a SYN packet to the server...
+
+Time: 2016-10-31 13:45:50.638127
+Packet Receiving: Received a packet from the server.
+len: 512
+ec105bd7c663e7df8bd66a726194ba2a9b2c310a
+ec105bd7c663e7df8bd66a726194ba2a9b2c310a
+seq: 0
+Packet Receiving: Received a valid SYNACK message from the server.
+Packet[#1] Sending: Sending a packet contained ACK and the name of file...
+
+Time: 2016-10-31 13:45:52.709202
+Packet Receiving: Received a packet from the server.
+len: 512
+iT1?4bd774F3 kdf8bd6:a62"1O4ua|_<bMc"1na
+7311095af69f38aeeecb94b208950b31b8927b87
+seq: \
+Packet Receiving: The packet received is invalid, discard it.
+Client: Retransmitting packet[#1]...
+
+Time: 2016-10-31 13:46:01.719065
+Packet Receiving: Received a packet from the server.
+len: 512
+ec105bd7c663e7df8bd66a726194ba2a9b2c310a
+ec105bd7c663e7df8bd66a726194ba2a9b2c310a
+seq: 0
+Packet Receiving: # of the packet received is incorrect, discard the packet.
+Client: Retransmitting packet[#1]...
+
+Time: 2016-10-31 13:46:02.720258
+Packet Receiving: Received a packet from the server.
+len: 512
+6ba4d3d3f9be29140107f0726c055098e87a5dbc
+6ba4d3d3f9be29140107f0726c055098e87a5dbc
+seq: 1
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#2] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:46:12.730443
+Packet Receiving: Timeout! Retransmitting packet[#2]...
+
+Time: 2016-10-31 13:46:13.731761
+Packet Receiving: Received a packet from the server.
+len: 512
+fe83619ee3f1e53ec708addb1073c441e8db31ae
+fe83619ee3f1e53ec708addb1073c441e8db31ae
+seq: 2
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#3] Sending: The packet will be sent is a FIN packet.
+Packet[#3] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:46:14.732948
+Packet Receiving: Received a packet from the server.
+len: 512
+19476a864ad8c2e702b1657b47fe9744ee5cc45b
+19476a864ad8c2e702b1657b47fe9744ee5cc45b
+seq: 3
+Packet Receiving: The packet is an ACKFIN packet.
+Packet[#4] Sending: Sending last packet to the server to close the connection...
+Connection closed.
+
+----Client starts to establish connection to localhost:5002----
+
+Time: 2016-10-31 13:46:33.667311
+Packet[#0] Sending: Sending a SYN packet to the server...
+
+Time: 2016-10-31 13:46:35.670433
+Packet Receiving: Received a packet from the server.
+len: 512
+ec105bd7c663e7df8bd66a726194ba2a9b2c310a
+ec105bd7c663e7df8bd66a726194ba2a9b2c310a
+seq: 0
+Packet Receiving: Received a valid SYNACK message from the server.
+Packet[#1] Sending: Sending a packet contained ACK and the name of file...
+
+Time: 2016-10-31 13:46:37.672749
+Packet Receiving: Received a packet from the server.
+len: 512
+6ba4d3d3f9be29140107f0726c055098e87a5dbc
+6ba4d3d3f9be29140107f0726c055098e87a5dbc
+seq: 1
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#2] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:46:47.682930
+Packet Receiving: Timeout! Retransmitting packet[#2]...
+
+Time: 2016-10-31 13:46:47.683669
+Packet Receiving: Received a packet from the server.
+len: 512
+6ba4d3d3f9be29140107f0726c055098e87a5dbc
+6ba4d3d3f9be29140107f0726c055098e87a5dbc
+seq: 1
+Packet Receiving: # of the packet received is incorrect, discard the packet.
+Client: Retransmitting packet[#2]...
+
+Time: 2016-10-31 13:46:48.685119
+Packet Receiving: Received a packet from the server.
+len: 512
+fe83619ee3f1e53ec708addb1073c441e8db31ae
+fe83619ee3f1e53ec708addb1073c441e8db31ae
+seq: 2
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#3] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:46:49.686516
+Packet Receiving: Received a packet from the server.
+len: 512
+fe83619ee3f1e53ec708addb1073c441e8db31ae
+fe83619ee3f1e53ec708addb1073c441e8db31ae
+seq: 2
+Packet Receiving: # of the packet received is incorrect, discard the packet.
+Client: Retransmitting packet[#3]...
+
+Time: 2016-10-31 13:46:50.687775
+Packet Receiving: Received a packet from the server.
+len: 512
+30bf9de3d031d2a88603e8c143897fa83a22a90e
+30bf9de3d031d2a88603e8c143897fa83a22a90e
+seq: 3
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#4] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:46:51.723528
+Packet Receiving: Received a packet from the server.
+len: 512
+y0{f9x&3&03!12G8/@03Rdc143B99$F8\a2^ |0Y
+8917a25ddf0d316e67aa5f9c858683f56c72072c
+seq: ,
+Packet Receiving: The packet received is invalid, discard it.
+Client: Retransmitting packet[#4]...
+
+Time: 2016-10-31 13:46:52.724646
+Packet Receiving: Received a packet from the server.
+len: 512
+27c142cecc27d49b5e828bfc694cf6f36bc4d014
+27c142cecc27d49b5e828bfc694cf6f36bc4d014
+seq: 4
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#5] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:46:53.725841
+Packet Receiving: Received a packet from the server.
+len: 512
+27c142cecc27d49b5e828bfc694cf6f36bc4d014
+27c142cecc27d49b5e828bfc694cf6f36bc4d014
+seq: 4
+Packet Receiving: # of the packet received is incorrect, discard the packet.
+Client: Retransmitting packet[#5]...
+
+Time: 2016-10-31 13:46:54.727037
+Packet Receiving: Received a packet from the server.
+len: 512
+9cb10029aa37a75f12b134bdf255d0611c65492d
+9cb10029aa37a75f12b134bdf255d0611c65492d
+seq: 5
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#6] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:46:55.728151
+Packet Receiving: Received a packet from the server.
+len: 512
+c875912a4711dac8f13a8df31cbc15d6376aa599
+c875912a4711dac8f13a8df31cbc15d6376aa599
+seq: 6
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#7] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:46:56.729370
+Packet Receiving: Received a packet from the server.
+len: 512
+9cb10029aa37a75f12b134bdf255d0611c65492d
+9cb10029aa37a75f12b134bdf255d0611c65492d
+seq: 5
+Packet Receiving: # of the packet received is incorrect, discard the packet.
+Client: Retransmitting packet[#7]...
+
+Time: 2016-10-31 13:46:57.730479
+Packet Receiving: Received a packet from the server.
+len: 512
+830303f135171585d400ffd985c01454f5b9c427
+830303f135171585d400ffd985c01454f5b9c427
+seq: 7
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#8] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:46:59.732817
+Packet Receiving: Received a packet from the server.
+len: 512
+20c2f7be8fdbe00f9e920f8b6159d31604ef543f
+20c2f7be8fdbe00f9e920f8b6159d31604ef543f
+seq: 8
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#9] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:47:00.734140
+Packet Receiving: Received a packet from the server.
+len: 512
+6acee8f578eb7daa8d611f7c8db5cab03637dee8
+6acee8f578eb7daa8d611f7c8db5cab03637dee8
+seq: 9
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#0] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:47:01.735214
+Packet Receiving: Received a packet from the server.
+len: 512
+d96b6e90b3ba8c94893691ed51e0d96b37b71f27
+d96b6e90b3ba8c94893691ed51e0d96b37b71f27
+seq: 0
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#1] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:47:11.745367
+Packet Receiving: Timeout! Retransmitting packet[#1]...
+
+Time: 2016-10-31 13:47:12.747377
+Packet Receiving: Received a packet from the server.
+len: 512
+6ba4d3d3f9be29140107f0726c055098e87a5dbc
+6ba4d3d3f9be29140107f0726c055098e87a5dbc
+seq: 1
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#2] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:47:13.748541
+Packet Receiving: Received a packet from the server.
+len: 512
+fe83619ee3f1e53ec708addb1073c441e8db31ae
+fe83619ee3f1e53ec708addb1073c441e8db31ae
+seq: 2
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#3] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:47:14.753622
+Packet Receiving: Received a packet from the server.
+len: 512
+`e83619e/3f1e53ec708adgb1073~441e8db31ae
+bd0b6da39e344883267c30ddf24efd4ed11e35d4
+seq: 2
+Packet Receiving: The packet received is invalid, discard it.
+Client: Retransmitting packet[#3]...
+
+Time: 2016-10-31 13:47:15.754702
+Packet Receiving: Received a packet from the server.
+len: 512
+30bf9de3d031d2a88603e8c143897fa83a22a90e
+30bf9de3d031d2a88603e8c143897fa83a22a90e
+seq: 3
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#4] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:47:16.755923
+Packet Receiving: Received a packet from the server.
+len: 512
+27c142cecc27d49b5e828bfc694cf6f36bc4d014
+27c142cecc27d49b5e828bfc694cf6f36bc4d014
+seq: 4
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#5] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:47:17.756064
+Packet Receiving: Received a packet from the server.
+len: 512
+9cb10029aa37a75f12b134bdf255d0611c65492d
+9cb10029aa37a75f12b134bdf255d0611c65492d
+seq: 5
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#6] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:47:19.763409
+Packet Receiving: Received a packet from the server.
+len: 512
+9cb10029aa37a75f12b134bdf255d0611c65492d
+9cb10029aa37a75f12b134bdf255d0611c65492d
+seq: 5
+Packet Receiving: # of the packet received is incorrect, discard the packet.
+Client: Retransmitting packet[#6]...
+
+Time: 2016-10-31 13:47:20.764612
+Packet Receiving: Received a packet from the server.
+len: 512
+c875912a4711dac8f13a8df31cbc15d6376aa599
+c875912a4711dac8f13a8df31cbc15d6376aa599
+seq: 6
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#7] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:47:21.765873
+Packet Receiving: Received a packet from the server.
+len: 512
+830303f135171585d400ffd985c01454f5b9c427
+830303f135171585d400ffd985c01454f5b9c427
+seq: 7
+Packet Receiving: Received a valid ACK message from the server.
+Packet[#8] Sending: The packet will be sent is a FIN packet.
+Packet[#8] Sending: Sending a packet contained the file content to the server...
+
+Time: 2016-10-31 13:47:22.767119
+Packet Receiving: Received a packet from the server.
+len: 512
+548dd16ef612ea8aa2abb7bac00b8ecc9616c2ed
+548dd16ef612ea8aa2abb7bac00b8ecc9616c2ed
+seq: 8
+Packet Receiving: The packet is an ACKFIN packet.
+Packet[#9] Sending: Sending last packet to the server to close the connection...
+Connection closed.

@@ -1,0 +1,373 @@
+Server starts to listen to localhost:5001
+Server is listening...
+
+----Incoming transmission from a client.----
+
+Time: 2016-10-31 13:45:22.555365
+Packet Receiving: Received a packet from the client.
+len: 512
+3b1d3c181b7239739605dfda719fb10634cbbbc4
+3b1d3c181b7239739605dfda719fb10634cbbbc4
+seq: 0
+Packet Receiving: The packet received is a valid SYN packet.
+Packet[#0] Sending: Sending a SYNACK packet to the client...
+
+Time: 2016-10-31 13:45:24.557599
+Packet Receiving: Received a packet from the client.
+len: 512
+e8bb085643f4956a49678e24786e28ab3e9ac13a
+e8bb085643f4956a49678e24786e28ab3e9ac13a
+seq: 1
+Packet Receiving: the packet received is valid, starting to receive the file 'short_test.txt'...
+Packet[#1] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:45:26.559831
+Packet Receiving: Received a packet from the client.
+len: 512
+ad3a45b5da6bdc8c55285b49db4dde2bd9a70b1e
+ad3a45b5da6bdc8c55285b49db4dde2bd9a70b1e
+seq: 2
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#2] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:45:28.562083
+Packet Receiving: Received a packet from the client.
+len: 512
+c3edd6d2f5e7e6300c7930f8bf2a34d932e4d0d7
+c3edd6d2f5e7e6300c7930f8bf2a34d932e4d0d7
+seq: 3
+Packet Receiving: the packet received is a FIN packet, close the file.
+Packet[#3] Sending: Sending an ACKFIN packet to the client...
+
+Time: 2016-10-31 13:45:30.564420
+Packet Receiving: Received a packet from the client.
+len: 512
+9c21c3a89cb3bf30266bfc311e577038476ff977
+9c21c3a89cb3bf30266bfc311e577038476ff977
+seq: 4
+Packet Receiving: The last packet is received, quitting...
+Connection closed.
+
+----Incoming transmission from a client.----
+
+Time: 2016-10-31 13:45:49.636926
+Packet Receiving: Received a packet from the client.
+len: 512
+3b1d3c181b7239739605dfda719fb10634cbbbc4
+3b1d3c181b7239739605dfda719fb10634cbbbc4
+seq: 0
+Packet Receiving: The packet received is a valid SYN packet.
+Packet[#0] Sending: Sending a SYNACK packet to the client...
+
+Time: 2016-10-31 13:45:51.640848
+Packet Receiving: Received a packet from the client.
+len: 512
+ab1fd38d37dc8acc2d55d0ca4b13db0a4a2c5046
+f4fff13e0367bceedd70968e2425453a4a3a493e
+seq: q
+Packet Receiving: The packet received is invalid, discard it.
+Server: Retransmitting packet[#0]...
+
+Time: 2016-10-31 13:46:01.651083
+Packet Receiving: Timeout! Retransmitting packet[#0]...
+
+Time: 2016-10-31 13:46:02.652817
+Packet Receiving: Received a packet from the client.
+len: 512
+ab1fd38d37dc8acc2d55d0ca4b13db0a4a2c5046
+ab1fd38d37dc8acc2d55d0ca4b13db0a4a2c5046
+seq: 1
+Packet Receiving: the packet received is valid, starting to receive the file 'another_short_test.txt'...
+Packet[#1] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:46:03.654020
+Packet Receiving: Received a packet from the client.
+len: 512
+08ad25dbd05062706b04d0c00d30aff1296abf87
+08ad25dbd05062706b04d0c00d30aff1296abf87
+seq: 2
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#2] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:46:13.664228
+Packet Receiving: Timeout! Retransmitting packet[#2]...
+
+Time: 2016-10-31 13:46:13.664912
+Packet Receiving: Received a packet from the client.
+len: 512
+08ad25dbd05062706b04d0c00d30aff1296abf87
+08ad25dbd05062706b04d0c00d30aff1296abf87
+seq: 2
+Packet Receiving: # of the packet received does not match the exception, discard the packet.
+Server: Retransmitting packet[#2]...
+
+Time: 2016-10-31 13:46:14.666129
+Packet Receiving: Received a packet from the client.
+len: 512
+c3edd6d2f5e7e6300c7930f8bf2a34d932e4d0d7
+c3edd6d2f5e7e6300c7930f8bf2a34d932e4d0d7
+seq: 3
+Packet Receiving: the packet received is a FIN packet, close the file.
+Packet[#3] Sending: Sending an ACKFIN packet to the client...
+
+Time: 2016-10-31 13:46:15.667332
+Packet Receiving: Received a packet from the client.
+len: 512
+9c21c3a89cb3bf30266bfc311e577038476ff977
+9c21c3a89cb3bf30266bfc311e577038476ff977
+seq: 4
+Packet Receiving: The last packet is received, quitting...
+Connection closed.
+
+----Incoming transmission from a client.----
+
+Time: 2016-10-31 13:46:34.669296
+Packet Receiving: Received a packet from the client.
+len: 512
+3b1d3c181b7239739605dfda719fb10634cbbbc4
+3b1d3c181b7239739605dfda719fb10634cbbbc4
+seq: 0
+Packet Receiving: The packet received is a valid SYN packet.
+Packet[#0] Sending: Sending a SYNACK packet to the client...
+
+Time: 2016-10-31 13:46:36.671610
+Packet Receiving: Received a packet from the client.
+len: 512
+0ac9410bd7f1e8068f8afd877c1a25b3ecffb368
+0ac9410bd7f1e8068f8afd877c1a25b3ecffb368
+seq: 1
+Packet Receiving: the packet received is valid, starting to receive the file 'proj2_des.txt'...
+Packet[#1] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:46:46.682464
+Packet Receiving: Timeout! Retransmitting packet[#1]...
+
+Time: 2016-10-31 13:46:47.683734
+Packet Receiving: Received a packet from the client.
+len: 512
+d45bf4163f0371440d37dd1c651bdcdf31e7912f
+d45bf4163f0371440d37dd1c651bdcdf31e7912f
+seq: 2
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#2] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:46:48.685147
+Packet Receiving: Received a packet from the client.
+len: 512
+d45bf4163f0371440d37dd1c651bdcdf31e7912f
+d45bf4163f0371440d37dd1c651bdcdf31e7912f
+seq: 2
+Packet Receiving: # of the packet received does not match the exception, discard the packet.
+Server: Retransmitting packet[#2]...
+
+Time: 2016-10-31 13:46:49.686509
+Packet Receiving: Received a packet from the client.
+len: 512
+e6ac4fc21c5b52ee1cc1fdbd896e38f5dd74ff9d
+e6ac4fc21c5b52ee1cc1fdbd896e38f5dd74ff9d
+seq: 3
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#3] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:46:50.687919
+Packet Receiving: Received a packet from the client.
+len: 512
+e6ac4fc21c5b52ee1cc1fdbd896e38f5dd74ff9d
+e6ac4fc21c5b52ee1cc1fdbd896e38f5dd74ff9d
+seq: 3
+Packet Receiving: # of the packet received does not match the exception, discard the packet.
+Server: Retransmitting packet[#3]...
+
+Time: 2016-10-31 13:46:51.699296
+Packet Receiving: Received a packet from the client.
+len: 512
+f06a82de13e101d9595df6b2d2c71645f7948363
+f06a82de13e101d9595df6b2d2c71645f7948363
+seq: 4
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#4] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:46:52.715753
+Packet Receiving: Received a packet from the client.
+len: 512
+f06a82de13e101d9595df6b2d2c71645f7948363
+f06a82de13e101d9595df6b2d2c71645f7948363
+seq: 4
+Packet Receiving: # of the packet received does not match the exception, discard the packet.
+Server: Retransmitting packet[#4]...
+
+Time: 2016-10-31 13:46:53.716962
+Packet Receiving: Received a packet from the client.
+len: 512
+d0eee1ea40232917db1d9fa05a709b877bf47bbb
+d0eee1ea40232917db1d9fa05a709b877bf47bbb
+seq: 5
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#5] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:46:54.718164
+Packet Receiving: Received a packet from the client.
+len: 512
+d0eee1ea40232917db1d9fa05a709b877bf47bbb
+d0eee1ea40232917db1d9fa05a709b877bf47bbb
+seq: 5
+Packet Receiving: # of the packet received does not match the exception, discard the packet.
+Server: Retransmitting packet[#5]...
+
+Time: 2016-10-31 13:46:55.719368
+Packet Receiving: Received a packet from the client.
+len: 512
+9fd91e665be9e816487f99a40503e8b97fab845a
+9fd91e665be9e816487f99a40503e8b97fab845a
+seq: 6
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#6] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:46:56.720559
+Packet Receiving: Received a packet from the client.
+len: 512
+3474211cd9d885812c6205fa584d859745b6c003
+3474211cd9d885812c6205fa584d859745b6c003
+seq: 7
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#7] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:46:57.721770
+Packet Receiving: Received a packet from the client.
+len: 512
+3474211cd9d885812c6205fa584d859745b6c003
+3474211cd9d885812c6205fa584d859745b6c003
+seq: 7
+Packet Receiving: # of the packet received does not match the exception, discard the packet.
+Server: Retransmitting packet[#7]...
+
+Time: 2016-10-31 13:46:58.723048
+Packet Receiving: Received a packet from the client.
+len: 512
+ffa9de78b24641b08aea2d767952f7fcee650011
+ffa9de78b24641b08aea2d767952f7fcee650011
+seq: 8
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#8] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:47:00.725635
+Packet Receiving: Received a packet from the client.
+len: 512
+66f2b35b7c1beff5db0359a9702d4c345565bcd3
+66f2b35b7c1beff5db0359a9702d4c345565bcd3
+seq: 9
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#9] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:47:01.726855
+Packet Receiving: Received a packet from the client.
+len: 512
+981f36191c5bcc60018f7f54cd578107f93c78cf
+981f36191c5bcc60018f7f54cd578107f93c78cf
+seq: 0
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#0] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:47:02.728066
+Packet Receiving: Received a packet from the client.
+len: 512
+d8871e99bfb5e418ad0b7bb59ed57ebf2d07acd6
+d8871e99bfb5e418ad0b7bb59ed57ebf2d07acd6
+seq: 1
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#1] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:47:12.738267
+Packet Receiving: Timeout! Retransmitting packet[#1]...
+
+Time: 2016-10-31 13:47:13.740288
+Packet Receiving: Received a packet from the client.
+len: 512
+ec6736a28de234fa915a10f2e5b16b3c33c391aa
+ec6736a28de234fa915a10f2e5b16b3c33c391aa
+seq: 2
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#2] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:47:14.741802
+Packet Receiving: Received a packet from the client.
+len: 512
+efb756ff38d3c567a958f04ecc2bc9007499146f
+567268943504c15e87894114de331503421cb5b6
+seq: 3
+Packet Receiving: The packet received is invalid, discard it.
+Server: Retransmitting packet[#2]...
+
+Time: 2016-10-31 13:47:15.743003
+Packet Receiving: Received a packet from the client.
+len: 512
+efb756ff38d3c567a958f04ecc2bc9007499146f
+efb756ff38d3c567a958f04ecc2bc9007499146f
+seq: 3
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#3] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:47:16.744209
+Packet Receiving: Received a packet from the client.
+len: 512
+e78bb4c5edf0439ed1349a34b118d8fddcdade7e
+e78bb4c5edf0439ed1349a34b118d8fddcdade7e
+seq: 4
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#4] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:47:17.745437
+Packet Receiving: Received a packet from the client.
+len: 512
+f1a64b609cf77280a9547a7faa0f765dc0e4cff7
+f1a64b609cf77280a9547a7faa0f765dc0e4cff7
+seq: 5
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#5] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:47:18.772237
+Packet Receiving: Received a packet from the client.
+len: 512
+7c6c7179wcEd59Q8b49e77ibea23^9Cs}df0ec+%
+3887ac35b0483fbcd35547d31fcfb99ea060d86c
+seq: L
+Packet Receiving: The packet received is invalid, discard it.
+Server: Retransmitting packet[#5]...
+
+Time: 2016-10-31 13:47:19.773514
+Packet Receiving: Received a packet from the client.
+len: 512
+6c6c71795c1d5928b49e773bec23f951adf0ebac
+6c6c71795c1d5928b49e773bec23f951adf0ebac
+seq: 6
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#6] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:47:20.774783
+Packet Receiving: Received a packet from the client.
+len: 512
+1e408dfbf11a44bcf73283eb9b16d2c259769f22
+1e408dfbf11a44bcf73283eb9b16d2c259769f22
+seq: 7
+Packet Receiving: the packet received is valid, writing the content into local file...
+Packet[#7] Sending: Sending an ACK packet to the client...
+
+Time: 2016-10-31 13:47:21.776059
+Packet Receiving: Received a packet from the client.
+len: 512
+30315a947ae1310098f8106de06274634b1b0a92
+30315a947ae1310098f8106de06274634b1b0a92
+seq: 8
+Packet Receiving: the packet received is a FIN packet, close the file.
+Packet[#8] Sending: Sending an ACKFIN packet to the client...
+
+Time: 2016-10-31 13:47:22.777257
+Packet Receiving: Received a packet from the client.
+len: 512
+512dc2b64ad2933057fc1b983bcb627ea2f58301
+512dc2b64ad2933057fc1b983bcb627ea2f58301
+seq: 9
+Packet Receiving: The last packet is received, quitting...
+Connection closed.
+
+Killed
