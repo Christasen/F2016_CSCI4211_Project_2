@@ -51,7 +51,7 @@ def TCP_SWP_server(connectedSock, addr):
         else:
             # timeout, re-sent data
             if len(data_sending) != 0:
-                print("Packet Receiving: Timeout! Retransmitting packet[#{}]...".format(seq_num))
+                print("Packet Receiving: Timeout! Retransmitting packet[#{}]...".format((exp_seq - 1) % 10))
                 sSock.send(data_sending.encode())
                 continue
             else:
