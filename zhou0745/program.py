@@ -58,7 +58,7 @@ def TCP_SWP_server(connectedSock, addr):
                 print("Packet Receiving: Did not receive SYN packet.")
                 continue
         # validate packet
-        if (len(data) == 0):
+        if (len(data) < 512):
             print("Server: connection is closed by the client. Quitting...")
             break
 
@@ -164,10 +164,10 @@ def TCP_server(hostname, portnum):
         server.start()
 
 
-def TCP_client(hostname, portnum, filename):
+def TCP_client(hostname, portnum, full_filedir):
     # try to open the file
     try:
-        fd = open(filename, 'r')
+        fd = open(full_filedir, 'r')
         file_content = fd.read()
         fd.close()
         file_len = len(file_content)
@@ -175,6 +175,15 @@ def TCP_client(hostname, portnum, filename):
     except error as msg:
         print(msg)
         return -1
+    # complete the steps of reading the file
+    # extract the short name of the file
+    if '/' in full_filedir:
+        # get the last seg of the full path and assign it to filename
+        file_dir_splited = full_filedir.split('/')
+        filename = file_dir_splited[-1]
+    else:
+        # if this is a file directory without any '/' symbol, assign the dir to filename directly
+        filename = full_filedir
     # start to establish connection
     print("\n----Client starts to establish connection to {}:{}----".format(hostname, portnum))
     try:
@@ -205,7 +214,7 @@ def TCP_client(hostname, portnum, filename):
             continue
         first_wave = False
         # # validate data received
-        if (len(data) == 0):
+        if (len(data) < 512):
             print("Client: Connection is closed by the server side. Quitting...")
             break
         if not validate_packet(data):
