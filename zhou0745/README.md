@@ -24,11 +24,12 @@ For more information about arguments, please enter
 ```
 python3 program.py -h
 ```
+
 ## Logic of my program
 * I used ArgumentParser library to parse the arguments from the commands lines. If the filename is left empty, the program would be started as a server. Otherwise, it would be started as a client to transfer file.
 * Firstly, I am using TCP three-way handshakes to establish the connection. The ACK (the third handshake) packet from the client to the server would attach the filename. After receiving the ACK packet for the filename packet mentioned above, the client would start to send the file content.
 * After sending all the content, the client would send a FIN packet to ask the server close the file and the client would close itself when it receives a FINACK packet from the server. The server would close itself when it receives the ACK packet for the FINACK packet it sent.
-* I used SHA-1 to verify the packet. Retransmitting would happen when the previsou sending packet is timeout or the packet received is invalid.
+* I used SHA-1 to verify the packet. Retransmitting would happen when the previous sending packet is timeout or the packet received is invalid.
 
 ## Packet Structure
 * 40-byte checksum
